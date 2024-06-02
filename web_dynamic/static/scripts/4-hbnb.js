@@ -9,7 +9,6 @@ document.ready(function () {
 		$(".amenities h4").text(Object.keys(amts).sort().join(", "));
 	});
 
-	// get status of API
 	$.getJSON("http://0.0.0.0:5001/api/v1/status/", (data) => {
 		if (data.status === "OK") {
 			$("div#api_status").addClass("available");
@@ -18,7 +17,6 @@ document.ready(function () {
 		}
 	});
 
-	// fetch data about places
 	$.post({
 		url: `${HOST}/api/v1/places_search`,
 		data: JSON.stringify({}),
@@ -54,7 +52,6 @@ document.ready(function () {
 		dataType: "json",
 	});
 
-	// search places
 	$(".filters button").bind("click", searchPlace);
 	searchPlace();
 });
